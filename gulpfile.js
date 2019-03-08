@@ -14,6 +14,15 @@ const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
 const chalk = require('chalk');
 const imagemin = require('gulp-imagemin');
+const uglify = require('gulp-uglify');
+const babel = require('gulp-babel');
+const rename = require("gulp-rename");
+const merge = require('gulp-merge');
+const mod = (__dirname.includes(process.cwd()) ? process.cwd() : __dirname) + '/node_modules/';
+const BABEL_POLYFILL = './node_modules/babel-polyfill/browser.js';
+const concat = require('gulp-concat');
+
+
 
 gulp.task('clean:build', function() {
   return del('./build');
@@ -31,7 +40,20 @@ gulp.task('server',  function() {
 });
 
 gulp.task('copy:js', function() {
-  return gulp.src('src/js/**/*.*')
+  return merge(
+    gulp.src(BABEL_POLYFILL),
+    gulp.src('src/js/lib/*.js'),
+    gulp.src('src/js/*.js')
+      .pipe(babel({
+          presets: [[mod + 'babel-preset-env']],
+        }
+      ))
+    )
+    .pipe(rename({
+      prefix: "bonjour-",
+      suffix: "-hola",
+    }))
+    .pipe(concat('build.js'))
     .pipe(gulp.dest('./build/js'))
     .pipe(browserSync.stream());
 });
