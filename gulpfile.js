@@ -13,6 +13,7 @@ const runSequence = require('run-sequence');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
 const chalk = require('chalk');
+const imagemin = require('gulp-imagemin');
 
 gulp.task('clean:build', function() {
   return del('./build');
@@ -36,7 +37,11 @@ gulp.task('copy:js', function() {
 });
 
 gulp.task('copy:img', function() {
-  return gulp.src('src/img/**/*.*')
+  return gulp.src('src/img/**/*.{jpg, jpeg, png, webp, gif}')
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5})]))
     .pipe(gulp.dest('./build/img'))
     .pipe(browserSync.stream());
 });
@@ -60,10 +65,8 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.write())
     .pipe(gcmq())
     .pipe(cleanCSS({debug: true}, (details) => {
-      setTimeout(() => {
-        console.log(chalk.blue(`${details.stats.originalSize}KB – original CSS`));
-        console.log(chalk.blue(`${details.stats.minifiedSize}KB – minified CSS`));
-      }, 2000)
+      console.log(chalk.blue(`${details.stats.originalSize}KB – original CSS`));
+      console.log(chalk.blue(`${details.stats.minifiedSize}KB – minified CSS`));
     }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
