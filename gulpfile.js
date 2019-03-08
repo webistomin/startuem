@@ -14,15 +14,13 @@ const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
 const chalk = require('chalk');
 const imagemin = require('gulp-imagemin');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const babel = require('gulp-babel');
 const rename = require("gulp-rename");
 const merge = require('gulp-merge');
 const mod = (__dirname.includes(process.cwd()) ? process.cwd() : __dirname) + '/node_modules/';
 const BABEL_POLYFILL = './node_modules/babel-polyfill/browser.js';
 const concat = require('gulp-concat');
-
-
 
 gulp.task('clean:build', function() {
   return del('./build');
@@ -49,17 +47,26 @@ gulp.task('copy:js', function() {
         }
       ))
     )
-    .pipe(rename({
-      prefix: "bonjour-",
-      suffix: "-hola",
-    }))
-    .pipe(concat('build.js'))
+    .pipe(concat('bundle.js'))
     .pipe(gulp.dest('./build/js'))
-    .pipe(browserSync.stream());
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: "-min",
+    }))
+    .pipe(gulp.dest("build/js"))
+    .pipe(browserSync.stream())
 });
 
 gulp.task('copy:img', function() {
   return gulp.src('src/img/**/*.{jpg, jpeg, png, webp, gif}')
+    .pipe(plumber({
+      errorHandler: notify.onError(function(err){
+        return {
+          title: 'Images',
+          message: err.message
+        }
+      })
+    }))
     .pipe(imagemin([
       imagemin.gifsicle({interlaced: true}),
       imagemin.jpegtran({progressive: true}),
@@ -114,7 +121,7 @@ gulp.task('pug', function() {
 gulp.task('default', function(){
   runSequence(
     'clean:build',
-    ['sass', 'pug', 'copy:js', 'copy:img',],
+    ['sass', 'pug', 'copy:js', 'copy:img'],
     'server',
   )
 });
