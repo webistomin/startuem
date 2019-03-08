@@ -1,0 +1,33 @@
+{
+  "name": "startuem",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webistomin/startuem.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webistomin/startuem/issues"
+  },
+  "homepage": "https://github.com/webistomin/startuem#readme",
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "run-sequence": "^2.2.1"
+  }
+}
