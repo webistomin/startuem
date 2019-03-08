@@ -18,6 +18,7 @@ const uglify = require('gulp-uglify-es').default;
 const babel = require('gulp-babel');
 const rename = require("gulp-rename");
 const merge = require('gulp-merge');
+const zip = require('gulp-zip');
 const mod = (__dirname.includes(process.cwd()) ? process.cwd() : __dirname) + '/node_modules/';
 const BABEL_POLYFILL = './node_modules/babel-polyfill/browser.js';
 const concat = require('gulp-concat');
@@ -131,3 +132,8 @@ gulp.task('default', function(){
   )
 });
 
+gulp.task('zip', () =>
+  gulp.src('build/*')
+    .pipe(zip('build.zip'))
+    .pipe(gulp.dest('./'))
+);
