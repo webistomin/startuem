@@ -51,7 +51,7 @@ gulp.task('copy:js', function() {
     .pipe(gulp.dest('./build/js'))
     .pipe(uglify())
     .pipe(rename({
-      suffix: "-min",
+      suffix: ".min",
     }))
     .pipe(gulp.dest("build/js"))
     .pipe(browserSync.stream())
@@ -88,14 +88,19 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer({
-      browsers: ['last 6 versions'],
+      browsers: ['last 2 versions', 'ie >= 11'],
       cascade: false
     }))
-    .pipe(sourcemaps.write())
     .pipe(gcmq())
-    .pipe(cleanCSS({debug: true}, (details) => {
-      console.log(chalk.blue(`${details.stats.originalSize}KB – original CSS`));
-      console.log(chalk.blue(`${details.stats.minifiedSize}KB – minified CSS`));
+    .pipe(sourcemaps.write())
+    .pipe(rename({
+      basename: 'style'
+    }))
+    .pipe(gulp.dest('./build/css'))
+    .pipe(cleanCSS({level: 2}))
+    .pipe(rename({
+      basename: 'style',
+      suffix: ".min",
     }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
