@@ -145,3 +145,34 @@ gulp.task('deploy', function() {
   return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
+
+gulp.task('print:css', function() {
+  return gulp.src('./src/sass/global/print.sass')
+    .pipe(plumber({
+      errorHandler: notify.onError(function(err){
+        return {
+          title: 'Styles',
+          message: err.message
+        }
+      })
+    }))
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', 'ie >= 11'],
+      cascade: false
+    }))
+    .pipe(gcmq())
+    .pipe(sourcemaps.write())
+    .pipe(rename({
+      basename: 'print'
+    }))
+    .pipe(gulp.dest('./build/css'))
+    .pipe(cleanCSS({level: 2}))
+    .pipe(rename({
+      basename: 'print',
+      suffix: ".min",
+    }))
+    .pipe(gulp.dest('./build/css'))
+    .pipe(browserSync.stream());
+});
