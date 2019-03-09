@@ -19,9 +19,7 @@ const merge = require('gulp-merge');
 const zip = require('gulp-zip');
 const BABEL_POLYFILL = './node_modules/babel-polyfill/browser.js';
 const concat = require('gulp-concat');
-const ghPages = require('gulp-gh-pages-will');
-const lighthouse = require('lighthouse');
-const chromeLauncher = require('chrome-launcher');
+
 global.tasker = require('gulp-tasker');
 tasker.loadTasks({
   path: '/gulp/tasks',
@@ -140,11 +138,6 @@ gulp.task('zip', () =>
     .pipe(gulp.dest('./'))
 );
 
-gulp.task('deploy', function() {
-  return gulp.src('./build/**/*')
-    .pipe(ghPages());
-});
-
 gulp.task('print:css', function() {
   return gulp.src('./src/sass/global/print.sass')
     .pipe(plumber({
@@ -175,38 +168,3 @@ gulp.task('print:css', function() {
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
 });
-
-gulp.task('lighthouse', function () {
-  function launchChromeAndRunLighthouse(url, flags, config = null) {
-    return chromeLauncher.launch().then(chrome => {
-      flags.port = chrome.port;
-      return lighthouse(url, flags, config).then(results =>
-        chrome.kill().then(() => results)
-      );
-    });
-  }
-  const config = {settings: {onlyCategories: ['performance']}};
-  return launchChromeAndRunLighthouse(`http://localhost:3000/index.html`, flags, config)
-    .then(handleOk)
-    .catch(handleError);
-});
-
-const flags = {};
-
-const handleOk = function(results) {
-  console.log(results); // eslint-disable-line no-console
-  // e.g. process.exit(1) or throw Error if score falls below a certain threshold.
-  // if (results.audits['first-meaningful-paint'].rawValue > 3000) {
-  //   console.log(`Warning: Time to first meaningful paint ${results.audits['first-meaningful-paint'].displayValue}`);
-  //   process.exit(1);
-  // }
-  return results;
-};
-
-/**
- * Handle error
- */
-const handleError = function(e) {
-  console.error(e); // eslint-disable-line no-console
-  throw e; // Throw to exit process with status 1.
-};
