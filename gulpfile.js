@@ -22,6 +22,9 @@ const zip = require('gulp-zip');
 const mod = (__dirname.includes(process.cwd()) ? process.cwd() : __dirname) + '/node_modules/';
 const BABEL_POLYFILL = './node_modules/babel-polyfill/browser.js';
 const concat = require('gulp-concat');
+const psi = require('psi');
+const ghPages = require('gulp-gh-pages-will');
+
 
 gulp.task('clean:build', function() {
   return del('./build');
@@ -129,7 +132,7 @@ gulp.task('default', function(){
     'clean:build',
     ['sass', 'pug', 'copy:js', 'copy:img'],
     'server',
-  )
+  );
 });
 
 gulp.task('zip', () =>
@@ -137,3 +140,8 @@ gulp.task('zip', () =>
     .pipe(zip('build.zip'))
     .pipe(gulp.dest('./'))
 );
+
+gulp.task('deploy', function() {
+  return gulp.src('./build/**/*')
+    .pipe(ghPages());
+});

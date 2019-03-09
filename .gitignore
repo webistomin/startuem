@@ -23,6 +23,7 @@ firebase-debug.log*
 /.firebase/
 firebase.json
 .firebaserc
+.publish
 
 # Unconfigured Editors
 .vscode/

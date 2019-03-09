@@ -27,6 +27,7 @@
     "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-gh-pages-will": "^0.5.5",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-imagemin": "^5.0.3",
     "gulp-merge": "^0.1.1",
@@ -38,6 +39,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify-es": "^1.0.4",
     "gulp-zip": "^4.2.0",
+    "psi": "^3.1.0",
     "run-sequence": "^2.2.1"
   },
   "dependencies": {}
