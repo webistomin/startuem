@@ -10,7 +10,8 @@ tasker.loadTasks({
 gulp.task('dev', function(){
   runSequence(
     'clean:build',
-    ['sass', 'pug', 'copy:js', 'copy:img'],
+    ['sass', 'print:css', 'pug', 'copy:js', 'copy:img'],
+    'sw',
     'server',
   );
 });
@@ -18,6 +19,7 @@ gulp.task('dev', function(){
 gulp.task('build', function(){
   runSequence(
     'clean:build',
-    ['sass:build', 'pug', 'js:build', 'img:build']
+    ['sass:build', 'print:css', 'pug', 'js:build', 'img:build'],
+    'sw'
   );
 });
