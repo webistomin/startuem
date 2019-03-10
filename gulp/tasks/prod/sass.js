@@ -1,14 +1,13 @@
 const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
-const sourcemaps = require('gulp-sourcemaps');
 const gcmq = require('gulp-group-css-media-queries');
+const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
 
-gulp.task('sass', function() {
+gulp.task('sass:build', function() {
   return gulp.src('./src/sass/main.sass')
     .pipe(plumber({
       errorHandler: notify.onError(function(err){
@@ -18,10 +17,12 @@ gulp.task('sass', function() {
         }
       })
     }))
-    .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', 'ie >= 11'],
+      cascade: false
+    }))
     .pipe(gcmq())
-    .pipe(sourcemaps.write())
     .pipe(rename({
       basename: 'style'
     }))
@@ -32,5 +33,4 @@ gulp.task('sass', function() {
       suffix: ".min",
     }))
     .pipe(gulp.dest('./build/css'))
-    .pipe(browserSync.stream());
 });

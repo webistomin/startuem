@@ -3,12 +3,15 @@ const merge = require('gulp-merge');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 const rename = require("gulp-rename");
-const browserSync = require('browser-sync').create();
+const babel = require('gulp-babel');
+const BABEL_POLYFILL = './node_modules/babel-polyfill/browser.js';
 
-gulp.task('copy:js', function() {
+gulp.task('js:build', function() {
   return merge(
+    gulp.src(BABEL_POLYFILL),
     gulp.src('src/js/lib/*.js'),
     gulp.src('src/js/*.js')
+      .pipe(babel())
   )
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest('./build/js'))
@@ -17,5 +20,4 @@ gulp.task('copy:js', function() {
       suffix: ".min",
     }))
     .pipe(gulp.dest("build/js"))
-    .pipe(browserSync.stream())
 });

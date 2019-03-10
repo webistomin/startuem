@@ -1,9 +1,9 @@
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
-const browserSync = require('browser-sync').create();
+const imagemin = require('gulp-imagemin');
 
-gulp.task('copy:img', function() {
+gulp.task('img:build', function() {
   return gulp.src('src/img/**/*.{jpg, jpeg, png, webp, gif}')
     .pipe(plumber({
       errorHandler: notify.onError(function(err){
@@ -13,6 +13,9 @@ gulp.task('copy:img', function() {
         }
       })
     }))
+    .pipe(imagemin([
+      imagemin.gifsicle({interlaced: true}),
+      imagemin.jpegtran({progressive: true}),
+      imagemin.optipng({optimizationLevel: 5})]))
     .pipe(gulp.dest('./build/img'))
-    .pipe(browserSync.stream());
 });
