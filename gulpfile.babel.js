@@ -11,7 +11,6 @@ gulp.task('dev', function(){
   runSequence(
     'clean:build',
     ['sass', 'print:css', 'pug', 'copy:js', 'copy:img'],
-    'sw',
     'server',
   );
 });
