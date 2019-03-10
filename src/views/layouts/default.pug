@@ -1,5 +1,4 @@
 include ../mixins/bemto/bemto
-- set_bemto_settings({ modifier: '--' })
 
 block variables
 
@@ -11,9 +10,5 @@ html(lang='ru' dir='ltr')
     include ../partials/page-header
     main.page-content(role='main')
       block content
-      +b.SECTION.header
-        +e.inner
-          +e.container.--fixed.--sticky
-        +e.nav
     include  ../partials/page-footer
     script(src='js/bundle.min.js' defer)
