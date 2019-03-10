@@ -8,7 +8,7 @@ const browserSync = require('browser-sync').create();
 gulp.task('copy:js', function() {
   return merge(
     gulp.src('src/js/lib/*.js'),
-    gulp.src('src/js/*.js')
+    gulp.src(['!src/js/service-worker-register.js','src/js/*.js'])
   )
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest('./build/js'))

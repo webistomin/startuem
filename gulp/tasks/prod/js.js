@@ -10,7 +10,7 @@ gulp.task('js:build', function() {
   return merge(
     gulp.src(BABEL_POLYFILL),
     gulp.src('src/js/lib/*.js'),
-    gulp.src('src/js/*.js')
+    gulp.src(['!src/js/service-worker-register.js', 'src/js/*.js'])
       .pipe(babel())
   )
     .pipe(concat('bundle.js'))
