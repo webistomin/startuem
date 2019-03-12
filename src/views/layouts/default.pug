@@ -1,14 +1,14 @@
-include ../mixins/bemto/bemto
+include ../mixins/bemto/bemto.pug
 
 block variables
 
 doctype html
 html(lang='ru' dir='ltr')
-  include ../partials/head
+  include ../partials/head.pug
   body
     noscript У вас отключен JavaScript. Это пугает.
-    include ../partials/page-header
+    include ../partials/page-header.pug
     main.page-content(role='main')
       block content
-    include  ../partials/page-footer
+    include  ../partials/page-footer.pug
     script(src='js/bundle.min.js' defer)
