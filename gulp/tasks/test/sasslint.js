@@ -7,4 +7,5 @@ gulp.task('sass:lint', function () {
       configFile: '.sasslintrc',
     }))
     .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
 });
