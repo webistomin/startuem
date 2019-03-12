@@ -8,11 +8,16 @@
     "deploy": "gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "gulp pug:lint"
+    "test": "gulp pug:lint",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,pug,md}": "editorconfig-cli",
+    "*.pug": "pug-lint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run lint-staged"
     }
   },
   "repository": {
