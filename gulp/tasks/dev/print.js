@@ -5,7 +5,6 @@ const notify = require('gulp-notify');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const gcmq = require('gulp-group-css-media-queries');
-const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
 
@@ -21,10 +20,6 @@ gulp.task('print:css', function() {
     }))
     .pipe(sourcemaps.init())
     .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions', 'ie >= 11'],
-      cascade: false
-    }))
     .pipe(gcmq())
     .pipe(sourcemaps.write())
     .pipe(rename({

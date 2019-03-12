@@ -3,7 +3,6 @@ const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
 const gcmq = require('gulp-group-css-media-queries');
-const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
 
@@ -18,10 +17,6 @@ gulp.task('sass:build', function() {
       })
     }))
     .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions', 'ie >= 11'],
-      cascade: false
-    }))
     .pipe(gcmq())
     .pipe(rename({
       basename: 'style'

@@ -8,7 +8,7 @@
     "deploy": "gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\""
+    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\" && gulp sass:lint"
   },
   "husky": {
     "hooks": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/webistomin/startuem#readme",
   "devDependencies": {
+    "autoprefixer": "^9.4.10",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
@@ -34,7 +35,6 @@
     "del": "^3.0.0",
     "glob-exec": "^0.1.1",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
@@ -44,16 +44,22 @@
     "gulp-merge": "^0.1.1",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^8.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-pug-linter": "^1.1.0",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
+    "gulp-sass-lint": "^1.4.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-tasker": "^0.3.1",
     "gulp-uglify-es": "^1.0.4",
     "gulp-zip": "^4.2.0",
     "husky": "^1.3.1",
     "lighthouse": "^4.2.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-initial": "^3.0.0",
+    "postcss-momentum-scrolling": "^1.5.10",
+    "postcss-object-fit-images": "^1.1.2",
     "psi": "^3.1.0",
     "run-sequence": "^2.2.1",
     "sw-precache": "^5.2.1"
