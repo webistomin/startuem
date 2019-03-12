@@ -3,22 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "gulp dev --inspect",
+    "dev": "gulp dev",
     "build": "gulp build",
     "deploy": "gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "gulp pug:lint",
-  },
-  "lint-staged": {
-    "*.pug": [
-      "npm test"
-    ]
+    "test": "gulp pug:lint"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-commit": "npm run test"
     }
   },
   "repository": {
