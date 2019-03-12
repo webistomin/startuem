@@ -8,11 +8,16 @@
     "deploy": "gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "gulp pug:lint"
+    "test": "gulp pug:lint",
+  },
+  "lint-staged": {
+    "*.pug": [
+      "npm test"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
   },
