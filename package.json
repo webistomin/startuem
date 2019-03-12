@@ -8,10 +8,7 @@
     "deploy": "gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "gulp pug:lint"
-  },
-  "lint-staged": {
-    "*.pug": "pug-lint"
+    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\""
   },
   "husky": {
     "hooks": {
@@ -35,6 +32,7 @@
     "browser-sync": "^2.26.3",
     "chrome-launcher": "^0.10.5",
     "del": "^3.0.0",
+    "glob-exec": "^0.1.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
