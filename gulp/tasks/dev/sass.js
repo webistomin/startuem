@@ -6,31 +6,35 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const gcmq = require('gulp-group-css-media-queries');
 const cleanCSS = require('gulp-clean-css');
-const rename = require("gulp-rename");
+const rename = require('gulp-rename');
 
 gulp.task('sass', function() {
+
   return gulp.src('./src/sass/main.sass')
     .pipe(plumber({
-      errorHandler: notify.onError(function(err){
+      errorHandler: notify.onError(function(err) {
+
         return {
           title: 'Styles',
-          message: err.message
-        }
-      })
+          message: err.message,
+        };
+
+      }),
     }))
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(gcmq())
     .pipe(sourcemaps.write())
     .pipe(rename({
-      basename: 'style'
+      basename: 'style',
     }))
     .pipe(gulp.dest('./build/css'))
-    .pipe(cleanCSS({level: 2}))
+    .pipe(cleanCSS({ level: 2 }))
     .pipe(rename({
       basename: 'style',
-      suffix: ".min",
+      suffix: '.min',
     }))
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
+
 });
