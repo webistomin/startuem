@@ -1,24 +1,28 @@
-"use strict";
 const gulp = require('gulp');
 const runSequence = require('run-sequence');
 global.tasker = require('gulp-tasker');
+
 tasker.loadTasks({
   path: '/gulp/tasks',
-  recurse: true
+  recurse: true,
 });
 
-gulp.task('dev', function(){
+gulp.task('dev', function() {
+
   runSequence(
     'clean:build',
-    ['sass', 'print:css', 'pug', 'copy:js', 'copy:img'],
+    ['sass', 'print:css', 'pug', 'copy:js', 'copy:img', 'copy:fonts'],
     'server',
   );
+
 });
 
-gulp.task('build', function(){
+gulp.task('build', function() {
+
   runSequence(
     'clean:build',
-    ['sass:build', 'print:css', 'pug', 'js:build', 'img:build'],
-    'sw'
+    ['sass:build', 'print:css', 'pug', 'js:build', 'img:build', 'copy:fonts'],
+    'sw',
   );
+
 });

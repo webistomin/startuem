@@ -4,18 +4,22 @@ const notify = require('gulp-notify');
 const imagemin = require('gulp-imagemin');
 
 gulp.task('img:build', function() {
-  return gulp.src('src/img/**/*.{jpg, jpeg, png, webp, gif}')
+
+  return gulp.src('src/img/**/*.{jpg, jpeg, png, webp, gif, svg}')
     .pipe(plumber({
-      errorHandler: notify.onError(function(err){
+      errorHandler: notify.onError(function(err) {
+
         return {
           title: 'Images',
-          message: err.message
-        }
-      })
+          message: err.message,
+        };
+
+      }),
     }))
     .pipe(imagemin([
-      imagemin.gifsicle({interlaced: true}),
-      imagemin.jpegtran({progressive: true}),
-      imagemin.optipng({optimizationLevel: 5})]))
-    .pipe(gulp.dest('./build/img'))
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.jpegtran({ progressive: true }),
+      imagemin.optipng({ optimizationLevel: 5 })]))
+    .pipe(gulp.dest('./build/img'));
+
 });
