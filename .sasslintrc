@@ -5,20 +5,17 @@
   },
   "files": {
     "include": "src/sass/**/*.sass",
+    "ignore": [
+      "src/sass/mixins/*.sass",
+      "src/sass/global/print.sass",
+      "src/sass/global/normalize.sass",
+      "src/sass/global/global.sass",
+    ]
   },
   "rules": {
     "extends-before-mixins": 2,
     "extends-before-declarations": 2,
     "placeholder-in-extend": 2,
-    "mixins-before-declarations": [
-      2,
-      {
-        "exclude": [
-          "breakpoint",
-          "mq"
-        ]
-      }
-    ],
     "no-warn": 1,
     "no-debug": 1,
     "no-ids": 2,
@@ -26,33 +23,22 @@
     "hex-notation": [
       2,
       {
-        "style": "uppercase"
+        "style": "lowercase"
       }
     ],
+    "hex-length": "long",
     "indentation": [
       2,
       {
         "size": 2
       }
     ],
-    "property-sort-order": [
-      1,
-      {
-        "order": [
-          "display",
-          "margin"
-        ],
-        "ignore-custom-properties": true
-      }
-    ],
-    "variable-for-property": [
-      2,
-      {
-        "properties": [
-          "margin",
-          "content"
-        ]
-      }
-    ]
+    "leading-zero": true,
+    "no-color-keywords": true,
+    "no-empty-rulesets": true,
+    "one-declaration-per-line": true,
+    "pseudo-element": true,
+    "url-quotes": true,
+    "zero-unit": false,
   }
 }
