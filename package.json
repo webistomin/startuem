@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build",
-    "deploy": "gulp deploy",
+    "deploy": "gulp build && gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\" && gulp sass:lint"
+    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\" && gulp sass:lint && js:lint",
+    "sw": "gulp sw"
   },
   "husky": {
     "hooks": {
@@ -48,6 +49,7 @@
     "gulp-gh-pages-will": "^0.5.5",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-imagemin": "^5.0.3",
+    "gulp-images-resizer": "0.0.5",
     "gulp-merge": "^0.1.1",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
@@ -82,7 +84,5 @@
     "run-sequence": "^2.2.1",
     "sw-precache": "^5.2.1"
   },
-  "dependencies": {
-    "gulp-images-resizer": "0.0.5"
-  }
+  "dependencies": {}
 }
