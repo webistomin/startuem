@@ -5,6 +5,7 @@ const postCSSInitial = require('postcss-initial');
 const postCSSScroll = require('postcss-momentum-scrolling');
 const postCSSObjectFit = require('postcss-object-fit-images');
 const postCSSSorting = require('postcss-sorting');
+const postCSSFocus = require('postcss-focus');
 
 const plugins = [
   postCSSInitial({
@@ -15,6 +16,7 @@ const plugins = [
     'scroll',
   ]),
   postCSSObjectFit(),
+  postCSSFocus(),
   postCSSSorting({
     'properties-order': [
       'position',

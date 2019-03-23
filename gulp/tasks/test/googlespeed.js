@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const runSequence = require('run-sequence');
 const psi = require('psi');
 
-const site = 'http://versan-e859e.firebaseapp.com';
+const site = '';
 
 gulp.task('psi:mobile', () => psi.output(site, {
   nokey: true,

@@ -5,7 +5,7 @@ const extReplace = require('gulp-ext-replace');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 
-gulp.task('img:webp', () => gulp.src('src/img/**/*.+(jpg|jpeg|png)')
+gulp.task('img:webp', () => gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./build/img/favicon/**/*.*'])
   .pipe(plumber({
     errorHandler: notify.onError(function(err) {
 

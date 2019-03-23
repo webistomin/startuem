@@ -12,6 +12,9 @@ gulp.task('dev', function() {
   runSequence(
     'clean:build',
     ['sass', 'print:css', 'pug', 'copy:js', 'copy:img', 'copy:fonts'],
+    'svg:sprite',
+    'img:resize',
+    'img:webp',
     'server',
   );
 
@@ -22,7 +25,12 @@ gulp.task('build', function() {
   runSequence(
     'clean:build',
     ['sass:build', 'print:css', 'pug', 'js:build', 'img:build', 'copy:fonts'],
-    'sw',
+    'svg:sprite',
+    'img:resize',
+    'img:webp',
+    'generate-favicon',
+    'inject-favicon-markups',
+    'typograf',
   );
 
 });

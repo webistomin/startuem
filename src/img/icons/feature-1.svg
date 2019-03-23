@@ -1,0 +1,8 @@
+<svg id="protein" xmlns="http://www.w3.org/2000/svg" width="50" height="56" viewBox="0 0 50 56">
+  <rect id="Rectangle_7" data-name="Rectangle 7" width="46" height="43" rx="3" transform="translate(2 11)" fill="#fcd04c"/>
+  <rect id="Rectangle_10" data-name="Rectangle 10" width="9" height="43" rx="3" transform="translate(2 11)" fill="#fc8b4c"/>
+  <rect id="Rectangle_8" data-name="Rectangle 8" width="46" height="23" rx="3" transform="translate(2 21)" fill="#06baed"/>
+  <rect id="Rectangle_9" data-name="Rectangle 9" width="9" height="23" transform="translate(2 21)" fill="#0099dc"/>
+  <path id="Path_62" data-name="Path 62" d="M44.833,10.063H41.611V0H8.389V10.063H5.167A5.133,5.133,0,0,0,0,15.148V50.914A5.133,5.133,0,0,0,5.167,56H44.833A5.133,5.133,0,0,0,50,50.914V15.148A5.133,5.133,0,0,0,44.833,10.063Zm-6.556,0H33.333V3.281h4.944ZM20,10.063V3.281h3.333v6.781Zm6.667-6.781H30v6.781H26.667Zm-14.944,0h4.944v6.781H11.722ZM5.167,13.344H44.833a1.821,1.821,0,0,1,1.833,1.8v4.758H3.333V15.148A1.821,1.821,0,0,1,5.167,13.344Zm41.5,9.844V42.93H3.333V23.188ZM44.833,52.719H5.167a1.821,1.821,0,0,1-1.833-1.8v-4.7H46.667v4.7A1.821,1.821,0,0,1,44.833,52.719Zm0,0"/>
+  <path id="Path_63" data-name="Path 63" d="M177.735,247.012l-2.449,3.508,2.736,1.91,6.111-8.754H178.7l2.4-3.523-2.758-1.879-5.955,8.739Zm0,0" transform="translate(-153.239 -212.358)" fill="#fcd04c"/>
+</svg>

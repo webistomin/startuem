@@ -20,7 +20,11 @@ gulp.task('img:build', function() {
       imagemin.gifsicle({ interlaced: true }),
       imagemin.jpegtran({ progressive: true }),
       imagemin.optipng({ optimizationLevel: 5 }),
-      imagemin.svgo(),
+      imagemin.svgo({
+        plugins: [
+          { removeAttrs: { attrs: 'data.*' } },
+        ],
+      }),
     ]))
     .pipe(gulp.dest('./build/img'));
 
