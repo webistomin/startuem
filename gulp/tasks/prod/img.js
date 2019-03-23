@@ -5,7 +5,7 @@ const imagemin = require('gulp-imagemin');
 
 gulp.task('img:build', function() {
 
-  return gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|webp|svg)', '!src/img/favicon/*')
+  return gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|webp|svg)')
     .pipe(plumber({
       errorHandler: notify.onError(function(err) {
 

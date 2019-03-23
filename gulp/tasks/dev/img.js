@@ -5,7 +5,7 @@ const browserSync = require('browser-sync').create();
 
 gulp.task('copy:img', function() {
 
-  return gulp.src('src/img/**/*.+(jpg|jpeg|png|webp|gif|svg)', '!src/img/favicon/*')
+  return gulp.src('src/img/**/*.+(jpg|jpeg|png|webp|gif|svg)')
     .pipe(plumber({
       errorHandler: notify.onError(function(err) {
 
