@@ -28,6 +28,8 @@ gulp.task('build', function() {
     'svg:sprite',
     'img:resize',
     'img:webp',
+    'postcss',
+    'posthtml',
     'generate-favicon',
     'inject-favicon-markups',
     'typograf',
