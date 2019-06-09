@@ -18,7 +18,7 @@ gulp.task('img:webp', () => gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./bu
   }))
   .pipe(imagemin([
     imageminWebp({
-      quality: 80,
+      quality: 90,
     }),
   ]))
   .pipe(extReplace('.webp'))

@@ -192,7 +192,7 @@ const plugins = [
   postCSSAutoprefixer({
     browsers: ['last 2 versions', 'ie >= 11'],
     cascade: false,
-    grid: 'autoplace',
+    grid: false,
   }),
 ];
 

@@ -30,8 +30,8 @@ gulp.task('build', function() {
     'img:webp',
     'postcss',
     'posthtml',
-    'generate-favicon',
-    'inject-favicon-markups',
+    // 'generate-favicon',
+    // 'inject-favicon-markups',
     'typograf',
   );
 

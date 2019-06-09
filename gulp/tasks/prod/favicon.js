@@ -94,7 +94,7 @@ gulp.task('inject-favicon-markups', function() {
 // released a new Touch icon along with the latest version of iOS).
 // Run this task from time to time. Ideally, make it part of your
 // continuous integration system.
-gulp.task('check-for-favicon-update', function(done) {
+gulp.task('check-for-favicon-update', function() {
 
   const currentVersion = JSON.parse(fs.readFileSync(FAVICON_DATA_FILE)).version;
   realFavicon.checkForUpdates(currentVersion, function(err) {
