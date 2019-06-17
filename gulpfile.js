@@ -7,7 +7,7 @@ tasker.loadTasks({
   recurse: true,
 });
 
-gulp.task('dev', function() {
+gulp.task('dev', () => {
 
   runSequence(
     'clean:build',
@@ -16,11 +16,12 @@ gulp.task('dev', function() {
     'img:resize',
     'img:webp',
     'server',
+    'typograf',
   );
 
 });
 
-gulp.task('build', function() {
+gulp.task('build', () => {
 
   runSequence(
     'clean:build',
