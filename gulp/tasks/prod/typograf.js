@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const typograf = require('gulp-typograf');
 
-gulp.task('typograf', function() {
+gulp.task('typograf', () => {
 
   gulp.src('./build/*.html')
     .pipe(typograf({

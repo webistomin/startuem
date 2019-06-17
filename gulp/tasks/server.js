@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 
-gulp.task('server', function() {
+gulp.task('server', () => {
 
   browserSync.init({
     server: { baseDir: './build/' },
@@ -11,5 +11,6 @@ gulp.task('server', function() {
   gulp.watch('src/sass/**/*.sass', ['sass']);
   gulp.watch('src/js/**/*.js', ['copy:js']);
   gulp.watch('src/img/**/*.*', ['copy:img']);
+  gulp.watch('src/img/icons/*.*', ['svg:sprite']);
 
 });

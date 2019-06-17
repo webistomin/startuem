@@ -4,7 +4,7 @@ const uglify = require('gulp-uglify-es').default;
 
 const rootDir = 'build';
 
-gulp.task('sw', function() {
+gulp.task('sw', () => {
 
   swPrecache.write('./build/service-worker.js', {
     staticFileGlobs: [`${rootDir}/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}`],

@@ -9,9 +9,5 @@ const config = () => ({
   ],
 });
 
-gulp.task('w3c:test', function() {
-
-  return gulp.src('./build/*.html')
-    .pipe(postHTML(config));
-
-});
+gulp.task('w3c:test', () => gulp.src('./build/*.html')
+  .pipe(postHTML(config)));

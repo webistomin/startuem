@@ -4,7 +4,7 @@ const notify = require('gulp-notify');
 const resizer = require('gulp-images-resizer');
 const rename = require('gulp-rename');
 
-gulp.task('img:resize', function() {
+gulp.task('img:resize', () => {
 
   return gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./build/img/favicon/**/*.*'])
     .pipe(plumber({

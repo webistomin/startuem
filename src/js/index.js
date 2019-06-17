@@ -1,3 +1,4 @@
+/* eslint-disable */
 // Set smooth scroll to anchor links
 
 const scrollLinks = new SmoothScroll('a.smooth', {
@@ -49,5 +50,5 @@ document.addEventListener('sal:in', ({ detail }) => {
 });
 
 // Scroll lockers
-const disableBodyScroll = bodyScrollLock.disableBodyScroll;
-const enableBodyScroll = bodyScrollLock.enableBodyScroll;
+const { disableBodyScroll } = bodyScrollLock;
+const { enableBodyScroll } = bodyScrollLock;

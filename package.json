@@ -73,7 +73,6 @@
     "lighthouse": "^4.2.0",
     "postcss-focus": "^4.0.0",
     "postcss-initial": "^3.0.0",
-    "postcss-momentum-scrolling": "^1.5.10",
     "postcss-object-fit-images": "^1.1.2",
     "postcss-sorting": "^4.1.0",
     "posthtml-alt-always": "^1.0.1",

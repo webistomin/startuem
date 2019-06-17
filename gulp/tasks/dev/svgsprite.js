@@ -12,20 +12,16 @@ const config = {
   },
 };
 
-gulp.task('svg:sprite', function() {
+gulp.task('svg:sprite', () => gulp.src('./build/img/icons/*.svg')
+  .pipe(plumber({
+    errorHandler: notify.onError(function(err) {
 
-  return gulp.src('./build/img/icons/*.svg')
-    .pipe(plumber({
-      errorHandler: notify.onError(function(err) {
+      return {
+        title: 'Svg sprite',
+        message: err.message,
+      };
 
-        return {
-          title: 'Svg sprite',
-          message: err.message,
-        };
-
-      }),
-    }))
-    .pipe(svgSprite(config))
-    .pipe(gulp.dest('./build/img/icons'));
-
-});
+    }),
+  }))
+  .pipe(svgSprite(config))
+  .pipe(gulp.dest('./build/img/icons')));

@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const postcss = require('gulp-postcss');
 const postCSSAutoprefixer = require('autoprefixer');
 const postCSSInitial = require('postcss-initial');
-const postCSSScroll = require('postcss-momentum-scrolling');
 const postCSSObjectFit = require('postcss-object-fit-images');
 const postCSSSorting = require('postcss-sorting');
 const postCSSFocus = require('postcss-focus');
@@ -12,9 +11,6 @@ const plugins = [
     reset: 'all',
     replace: true,
   }),
-  postCSSScroll([
-    'scroll',
-  ]),
   postCSSObjectFit(),
   postCSSFocus(),
   postCSSSorting({
@@ -190,16 +186,12 @@ const plugins = [
     ],
   }),
   postCSSAutoprefixer({
-    browsers: ['last 2 versions', 'ie >= 11'],
+    browsers: ['last 2 versions', 'ie >= 11', 'not dead'],
     cascade: false,
     grid: false,
   }),
 ];
 
-gulp.task('postcss', function() {
-
-  return gulp.src('build/css/*.css')
-    .pipe(postcss(plugins))
-    .pipe(gulp.dest('./build/css'));
-
-});
+gulp.task('postcss', () => gulp.src('build/css/*.css')
+  .pipe(postcss(plugins))
+  .pipe(gulp.dest('./build/css')));
