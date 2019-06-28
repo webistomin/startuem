@@ -7,10 +7,10 @@ gulp.task('server', () => {
     server: { baseDir: './build/' },
   });
 
-  gulp.watch('src/views/**/*.*', ['pug']);
-  gulp.watch('src/sass/**/*.sass', ['sass']);
-  gulp.watch('src/js/**/*.js', ['copy:js']);
-  gulp.watch('src/img/**/*.*', ['copy:img']);
-  gulp.watch('src/img/icons/*.*', ['svg:sprite']);
+  gulp.watch('src/views/**/*.*', gulp.series(['pug']));
+  gulp.watch('src/sass/**/*.sass', gulp.series(['sass']));
+  gulp.watch('src/js/**/*.js', gulp.series(['copy:js:custom'], ['copy:js:libs']));
+  gulp.watch('src/img/**/*.*', gulp.series(['copy:img']));
+  gulp.watch('src/img/icons/*.*', gulp.series(['svg:sprite']));
 
 });
