@@ -13,5 +13,5 @@ div(data-animation="fade-right" class="will-change")
 
 ```pug
 svg(role="img")
-	use(xlink:href="sprite.svg#icon")
+  use(xlink:href="sprite.svg#icon")
 ```
