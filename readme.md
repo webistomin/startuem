@@ -1,4 +1,4 @@
-# Вёрстка стартер пак [![dependencies Status](https://david-dm.org/webistomin/ggpa-test-task/status.svg)](https://david-dm.org/webistomin/ggpa-test-task) [![Dependency status][dependency-image]][dependency-url] 
+# Вёрстка стартер пак [![dependencies Status](https://david-dm.org/webistomin/startuem/status.svg)](https://david-dm.org/webistomin/startuem) [![Dependency status][dependency-image]][dependency-url] 
 
 
 
