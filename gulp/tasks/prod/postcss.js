@@ -186,7 +186,6 @@ const plugins = [
     ],
   }),
   postCSSAutoprefixer({
-    browsers: ['last 2 versions', 'ie >= 11', 'not dead'],
     cascade: false,
     grid: false,
   }),
