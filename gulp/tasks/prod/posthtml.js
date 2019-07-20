@@ -3,6 +3,8 @@ const postHTML = require('gulp-posthtml');
 const postHTMLBeautify = require('posthtml-beautify');
 const postHTMLAlt = require('posthtml-alt-always');
 const postHTMLAttrSorter = require('posthtml-attrs-sorter');
+const postHTMLLinkNoRef = require('posthtml-link-noreferrer');
+const postHTMLLazyLoad = require('posthtml-lazyload');
 
 const config = () => ({
   plugins: [
@@ -14,6 +16,11 @@ const config = () => ({
     }),
     postHTMLAlt(),
     postHTMLAttrSorter(),
+    postHTMLLinkNoRef(),
+    postHTMLLazyLoad({
+      loading: 'eager',
+      class: 'lazy',
+    }),
   ],
 });
 

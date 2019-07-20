@@ -59,8 +59,25 @@ button
 figure
   margin: 0
 
+input,
+textarea
+  touch-action: manipulation
+  -webkit-appearance: none
+  border-radius: 0
+  box-shadow: none
+
+  &:required
+    box-shadow: none
+
 textarea
   resize: none
+
+label
+  touch-action: manipulation
+  -webkit-tap-highlight-color: transparent
+
+picture
+  display: inline-block
 
 ::-moz-selection
   background-color: #b3d4fc
@@ -69,17 +86,3 @@ textarea
 ::selection
   background-color: #b3d4fc
   text-shadow: none
-
-input
-  touch-action: manipulation
-  appearance: none
-
-label
-  touch-action: manipulation
-  -webkit-tap-highlight-color: transparent
-
-input:required
-  box-shadow: none
-
-picture
-  display: inline-block
