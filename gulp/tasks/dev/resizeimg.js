@@ -6,7 +6,7 @@ const rename = require('gulp-rename');
 
 gulp.task('img:resize', () => {
 
-  return gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./build/img/favicon/**/*.*'])
+  return gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./build/img/favicon/**/*.*', '!./build/img/sharing/**/*.*'])
     .pipe(plumber({
       errorHandler: notify.onError(function(err) {
 

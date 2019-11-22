@@ -1,7 +1,7 @@
-/* eslint-disable */
 // Set smooth scroll to anchor links
 
-const scrollLinks = new SmoothScroll('a.smooth', {
+
+const scrollLinks = new SmoothScroll('a[href^="#"]', {
   speed: 600,
   easing: 'easeInOutQuad',
 });

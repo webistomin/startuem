@@ -9,5 +9,6 @@ html(lang='ru' dir='ltr')
     main.page-content(role='main')
       block content
     include ../partials/page-footer.pug
+    script(src='https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CNodeList.prototype.forEach%2CObject.entries%2CElement.prototype.closest' defer)
     script(src='js/vendors.min.js' defer)
     script(src='js/bundle.min.js' defer)

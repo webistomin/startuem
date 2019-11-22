@@ -4,6 +4,7 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify-es').default;
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
+const babel = require('gulp-babel');
 
 gulp.task('copy:js:libs', () => gulp.src('src/js/lib/*.js')
   .pipe(concat('vendors.js'))
@@ -16,6 +17,7 @@ gulp.task('copy:js:libs', () => gulp.src('src/js/lib/*.js')
   .pipe(browserSync.stream()));
 
 gulp.task('copy:js:custom', () => gulp.src(['src/js/*.js', '!src/js/service-worker-register.js'])
+  .pipe(babel())
   .pipe(concat('bundle.js'))
   .pipe(gulp.dest('./build/js'))
   .pipe(uglify())
