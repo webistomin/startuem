@@ -8,8 +8,9 @@
     "deploy": "gulp build && gulp deploy",
     "zip": "gulp zip",
     "clean": "gulp clean:build",
-    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\" && gulp sass:lint && gulp js:lint",
-    "sw": "gulp sw"
+    "test": "glob-exec \"src/views/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\" && gulp sass:lint && gulp js:lint && npm run ec",
+    "sw": "gulp sw",
+    "ec": "editorconfig-checker"
   },
   "husky": {
     "hooks": {
@@ -32,13 +33,18 @@
     "autoprefixer": "^9.7.2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "browser-sync": "^2.26.7",
     "chrome-launcher": "^0.12.0",
     "del": "^5.1.0",
+    "editorconfig-checker": "^3.0.3",
     "eslint": "^6.6.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "fs": "0.0.2",
     "glob-exec": "^0.1.1",
     "gulp": "^4.0.2",
@@ -84,7 +90,15 @@
     "posthtml-link-noreferrer": "^1.0.5",
     "posthtml-w3c": "^0.8.2",
     "psi": "^4.0.1",
-    "sw-precache": "^5.2.1"
+    "sw-precache": "^5.2.1",
+    "webpack-stream": "^5.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "body-scroll-lock": "^2.6.4",
+    "lodash.throttle": "^4.1.1",
+    "picturefill": "^3.0.3",
+    "sal.js": "^0.6.4",
+    "smooth-scroll": "^16.1.0",
+    "svg4everybody": "^2.1.9"
+  }
 }

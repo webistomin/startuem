@@ -7,13 +7,11 @@ const notify = require('gulp-notify');
 
 gulp.task('img:webp', () => gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./build/img/favicon/**/*.*'])
   .pipe(plumber({
-    errorHandler: notify.onError(function(err) {
-
+    errorHandler: notify.onError(function (err) {
       return {
         title: 'Webp',
         message: err.message,
       };
-
     }),
   }))
   .pipe(imagemin([

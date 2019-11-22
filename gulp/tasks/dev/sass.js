@@ -10,13 +10,11 @@ const rename = require('gulp-rename');
 
 gulp.task('sass', () => gulp.src('./src/sass/main.sass')
   .pipe(plumber({
-    errorHandler: notify.onError(function(err) {
-
+    errorHandler: notify.onError(function (err) {
       return {
         title: 'Styles',
         message: err.message,
       };
-
     }),
   }))
   .pipe(sourcemaps.init())

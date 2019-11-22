@@ -5,16 +5,13 @@ const resizer = require('gulp-images-resizer');
 const rename = require('gulp-rename');
 
 gulp.task('img:resize', () => {
-
   return gulp.src(['./build/img/**/*.+(jpg|jpeg|png)', '!./build/img/favicon/**/*.*', '!./build/img/sharing/**/*.*'])
     .pipe(plumber({
-      errorHandler: notify.onError(function(err) {
-
+      errorHandler: notify.onError(function (err) {
         return {
           title: 'Retina images',
           message: err.message,
         };
-
       }),
     }))
     .pipe(resizer({
@@ -24,5 +21,4 @@ gulp.task('img:resize', () => {
       suffix: '@2x',
     }))
     .pipe(gulp.dest('build/img'));
-
 });

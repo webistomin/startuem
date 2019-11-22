@@ -8,10 +8,11 @@ tasker.loadTasks({
 });
 
 gulp.task('dev', (callback) => {
-
   runSequence(
     'clean:build',
-    ['sass', 'print:css', 'pug', 'copy:js:libs', 'copy:js:custom', 'copy:img', 'copy:fonts'],
+    ['sass', 'print:css', 'pug', 'copy:img', 'copy:fonts'],
+    'copy:js:libs',
+    'copy:js:custom',
     'svg:sprite',
     'img:resize',
     'img:webp',
@@ -21,14 +22,14 @@ gulp.task('dev', (callback) => {
     'typograf',
     callback,
   );
-
 });
 
 gulp.task('build', (callback) => {
-
   runSequence(
     'clean:build',
-    ['sass:build', 'print:css', 'pug', 'js:build:libs', 'js:build:custom', 'img:build', 'copy:fonts'],
+    ['sass:build', 'print:css', 'pug', 'img:build', 'copy:fonts'],
+    'js:build:libs',
+    'js:build:custom',
     'svg:sprite',
     'img:resize',
     'img:webp',
@@ -39,5 +40,4 @@ gulp.task('build', (callback) => {
     'typograf',
     callback,
   );
-
 });

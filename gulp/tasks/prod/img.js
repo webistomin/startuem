@@ -5,13 +5,11 @@ const imagemin = require('gulp-imagemin');
 
 gulp.task('img:build', () => gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|webp|svg)')
   .pipe(plumber({
-    errorHandler: notify.onError(function(err) {
-
+    errorHandler: notify.onError(function (err) {
       return {
         title: 'Images',
         message: err.message,
       };
-
     }),
   }))
   .pipe(imagemin([
