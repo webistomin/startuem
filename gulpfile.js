@@ -16,8 +16,6 @@ gulp.task('dev', (callback) => {
     'svg:sprite',
     'img:resize',
     'img:webp',
-    'generate-favicon',
-    'inject-favicon-markups',
     'server',
     'typograf',
     callback,
@@ -34,10 +32,10 @@ gulp.task('build', (callback) => {
     'img:resize',
     'img:webp',
     'postcss',
-    'posthtml',
     'generate-favicon',
     'inject-favicon-markups',
     'typograf',
+    'posthtml',
     callback,
   );
 });

@@ -9,19 +9,19 @@ const launchChromeAndRunLighthouse = (url, flags, config = null) => {
   });
 };
 
-const handleOk = function (results) {
+const handleOk = (results) => {
   console.log(results);
   return results;
 };
 
-const handleError = function (e) {
+const handleError = (e) => {
   console.error(e);
   throw e;
 };
 
 const flags = {};
 
-gulp.task('lighthouse', function () {
+gulp.task('lighthouse', () => {
   const config = { settings: { onlyCategories: ['performance'] } };
   return launchChromeAndRunLighthouse('http://localhost:3000/', flags, config)
     .then(handleOk)
