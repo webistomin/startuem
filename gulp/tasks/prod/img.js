@@ -5,7 +5,7 @@ const imagemin = require('gulp-imagemin');
 
 gulp.task('img:build', () => gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|webp|svg)')
   .pipe(plumber({
-    errorHandler: notify.onError(function (err) {
+    errorHandler: notify.onError((err) => {
       return {
         title: 'Images',
         message: err.message,
@@ -14,7 +14,7 @@ gulp.task('img:build', () => gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|webp|svg)
   }))
   .pipe(imagemin([
     imagemin.gifsicle({ interlaced: true }),
-    imagemin.jpegtran({ progressive: true }),
+    imagemin.mozjpeg({ progressive: true }),
     imagemin.optipng({ optimizationLevel: 1 }),
     imagemin.svgo({
       plugins: [
