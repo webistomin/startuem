@@ -15,13 +15,17 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   -webkit-text-size-adjust: none
+  -webkit-tap-highlight-color: transparent
 
   @supports (min-height: calc(var(--vh) * 100))
     min-height: calc(var(--vh) * 100)
 
 img
+  width: 100%
   max-width: 100%
   height: auto
+  object-fit: cover
+  object-position: center
 
 audio, canvas,
 iframe, svg, video, img
@@ -40,7 +44,6 @@ li
 a
   color: inherit
   text-decoration: none
-  -webkit-tap-highlight-color: transparent
   touch-action: manipulation
 
 blockquote
@@ -55,7 +58,6 @@ button
   background-color: transparent
   cursor: pointer
   user-select: none
-  -webkit-tap-highlight-color: transparent
   touch-action: manipulation
 
 figure
@@ -67,7 +69,6 @@ textarea
   touch-action: manipulation
   -webkit-appearance: none
   border-radius: 0
-  box-shadow: none
 
   &:required
     box-shadow: none
@@ -75,12 +76,14 @@ textarea
   &::-ms-clear
     display: none
 
+\:-moz-ui-invalid
+  box-shadow: none
+
 textarea
   resize: none
 
 label
   touch-action: manipulation
-  -webkit-tap-highlight-color: transparent
 
 picture
   display: inline-block
@@ -92,3 +95,6 @@ picture
 ::selection
   background-color: #b3d4fc
   text-shadow: none
+
+\:-ms-input-placeholder
+  color: rgba(0, 0, 0, 0.54)

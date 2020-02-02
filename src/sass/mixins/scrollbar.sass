@@ -1,0 +1,18 @@
+=scrollbar($size, $foreground-color, $background-color, $border-radius)
+  scrollbar-color: $foreground-color $background-color
+  scrollbar-width: thin
+
+  &::-webkit-scrollbar
+    width: $size
+    height: $size
+
+  &::-webkit-scrollbar-thumb
+    background-color: $foreground-color
+    border-radius: $border-radius
+
+  &::-webkit-scrollbar-track
+    background-color: $background-color
+    scrollbar-face-color: $foreground-color
+    scrollbar-track-color: $background-color
+
+

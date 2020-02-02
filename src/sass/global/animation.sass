@@ -25,3 +25,12 @@
   &.animated
     opacity: 1
     transform: none
+
+@media (prefers-reduced-motion: reduce)
+  [data-animation]
+    opacity: 1 !important
+    transform: none !important
+
+  *
+    transition: none !important
+
