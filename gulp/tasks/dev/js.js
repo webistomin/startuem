@@ -5,24 +5,25 @@ const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const webpackStream = require('webpack-stream');
 
-gulp.task('copy:js:libs', () => gulp.src('src/js/lib/*.js')
+gulp.task('copy:js:libs', () => gulp.src('src/js/lib/**/*.js')
   .pipe(webpackStream({
     output: {
       filename: '[name].js',
     },
     mode: 'development',
-    module: {
-      rules: [
-        {
-          test: /\.(js)$/,
-          exclude: /(node_modules)/,
-          loader: 'babel-loader',
-          query: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      ]
-    },
+    // If need to transpile node_modules
+    // module: {
+    //   rules: [
+    //     {
+    //       test: /\.(js)$/,
+    //       exclude: /(node_modules)/,
+    //       loader: 'babel-loader',
+    //       query: {
+    //         presets: ['@babel/preset-env']
+    //       }
+    //     }
+    //   ]
+    // },
   }))
   .pipe(concat('vendors.js'))
   .pipe(gulp.dest('./build/js'))
@@ -33,7 +34,7 @@ gulp.task('copy:js:libs', () => gulp.src('src/js/lib/*.js')
   .pipe(gulp.dest('build/js'))
   .pipe(browserSync.stream()));
 
-gulp.task('copy:js:custom', () => gulp.src(['src/js/*.js', '!src/js/service-worker-register.js'])
+gulp.task('copy:js:custom', () => gulp.src(['src/js/**/*.js', '!src/js/lib/**/*.js', '!src/js/service-worker-register.js'])
   .pipe(webpackStream({
     output: {
       filename: '[name].js',
