@@ -4,6 +4,7 @@ const browserSync = require('browser-sync').create();
 gulp.task('server', () => {
   browserSync.init({
     server: { baseDir: './build/' },
+    plugins: ['bs-console-qrcode'],
   });
 
   gulp.watch('src/views/**/*.*', gulp.series(['pug']));

@@ -34,6 +34,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "browser-sync": "^2.26.7",
+    "bs-console-qrcode": "^1.0.3",
     "chrome-launcher": "^0.12.0",
     "del": "^5.1.0",
     "editorconfig-checker": "^3.0.3",
