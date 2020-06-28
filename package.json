@@ -82,7 +82,7 @@
     "postcss-sorting": "^5.0.1",
     "posthtml-alt-always": "^1.0.1",
     "posthtml-attrs-sorter": "^1.1.0",
-    "posthtml-beautify": "^0.3.1",
+    "posthtml-beautify": "^0.7.0",
     "posthtml-lazyload": "^1.0.5",
     "posthtml-link-noreferrer": "^1.0.5",
     "posthtml-w3c": "^0.8.2",
