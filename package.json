@@ -91,7 +91,7 @@
     "webpack-stream": "^5.2.1"
   },
   "dependencies": {
-    "body-scroll-lock": "^2.6.4",
+    "body-scroll-lock": "^3.0.3",
     "lodash.throttle": "^4.1.1",
     "picturefill": "^3.0.3",
     "sal.js": "^0.7.1",
