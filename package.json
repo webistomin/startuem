@@ -85,7 +85,7 @@
     "posthtml-beautify": "^0.7.0",
     "posthtml-lazyload": "^1.0.5",
     "posthtml-link-noreferrer": "^1.0.5",
-    "posthtml-w3c": "^0.8.2",
+    "posthtml-w3c": "^0.9.0",
     "psi": "^4.0.1",
     "sw-precache": "^5.2.1",
     "webpack-stream": "^5.2.1"
