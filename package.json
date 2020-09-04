@@ -94,7 +94,7 @@
     "body-scroll-lock": "^3.0.3",
     "lodash.throttle": "^4.1.1",
     "picturefill": "^3.0.3",
-    "sal.js": "^0.7.1",
+    "sal.js": "^0.8.1",
     "smooth-scroll": "^16.1.2",
     "svg4everybody": "^2.1.9"
   }
