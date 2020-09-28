@@ -36,7 +36,7 @@
     "browser-sync": "^2.26.7",
     "bs-console-qrcode": "^1.0.3",
     "chrome-launcher": "^0.13.3",
-    "del": "^5.1.0",
+    "del": "^6.0.0",
     "editorconfig-checker": "^3.0.3",
     "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.0",
