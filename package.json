@@ -75,7 +75,7 @@
     "gulp4-run-sequence": "^1.0.1",
     "husky": "^4.2.1",
     "imagemin-webp": "^6.0.0",
-    "lighthouse": "^6.0.0",
+    "lighthouse": "^7.0.0",
     "postcss-focus": "^4.0.0",
     "postcss-initial": "^3.0.2",
     "postcss-object-fit-images": "^1.1.2",
