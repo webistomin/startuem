@@ -37,7 +37,7 @@
     "bs-console-qrcode": "^1.0.3",
     "chrome-launcher": "^0.13.3",
     "del": "^6.0.0",
-    "editorconfig-checker": "^3.0.3",
+    "editorconfig-checker": "^4.0.1",
     "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.20.1",
